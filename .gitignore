@@ -1,4 +1,4 @@
 # Build and Release Folders
-node-modules/
+node_modules/
 dist/
 
