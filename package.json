@@ -1,0 +1,36 @@
+{
+  "name": "vac-front",
+  "version": "0.0.1",
+  "description": "Simple blog site",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hovisser/vac-front.git"
+  },
+  "keywords": [
+    "Vacancy",
+    "blog",
+    "italie"
+  ],
+  "author": "Hotze Visser",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hovisser/vac-front/issues"
+  },
+  "homepage": "https://github.com/hovisser/vac-front#readme",
+  "dependencies": {
+    "angular": "^1.5.5",
+    "angular-bootstrap": "^0.12.2",
+    "gulp": "^3.9.1",
+    "gulp-browserify": "^0.5.1",
+    "gulp-concat": "^2.6.0",
+    "gulp-jshint": "^2.0.1",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^2.3.1",
+    "gulp-uglify": "^1.5.3",
+    "jshint": "^2.9.2"
+  }
+}
