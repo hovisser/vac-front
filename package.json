@@ -24,13 +24,17 @@
   "dependencies": {
     "angular": "^1.5.5",
     "angular-bootstrap": "^0.12.2",
+    "angular-route": "^1.5.5",
+    "browserify": "^13.0.1",
     "gulp": "^3.9.1",
     "gulp-browserify": "^0.5.1",
     "gulp-concat": "^2.6.0",
+    "gulp-connect": "^4.0.0",
     "gulp-jshint": "^2.0.1",
     "gulp-rename": "^1.2.2",
     "gulp-sass": "^2.3.1",
     "gulp-uglify": "^1.5.3",
-    "jshint": "^2.9.2"
+    "jshint": "^2.9.2",
+    "vinyl-source-stream": "^1.1.0"
   }
 }
