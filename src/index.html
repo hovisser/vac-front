@@ -8,16 +8,10 @@
 </head>
 <body>
     <div ng-controller="MainController">
-        <h1>{{ message }}</h1>
-        <p>
-            <button type="button" class="btn btn-default btn-sm" ng-click="status.open = !status.open">Toggle last panel</button>
-        </p>
-        <div class="btn-group">
-          <label class="btn btn-primary" ng-model="radioModel" btn-radio="'Left'">Left</label>
-          <label class="btn btn-primary" ng-model="radioModel" btn-radio="'Middle'">Middle</label>
-          <label class="btn btn-primary" ng-model="radioModel" btn-radio="'Right'">Right</label>
-        </div>
-
+      {{ message }}
+      <button type="button" class="btn btn-default" aria-label="Left Align">
+        <span class="glyphicon glyphicon-align-left" aria-hidden="true"></span>
+      </button>
     </div>
 </body>
 </html>

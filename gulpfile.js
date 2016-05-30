@@ -33,7 +33,7 @@ var js = {
     in: [
         src + '/app/**/*.module.js',
         src + '/app/**/*.js',
-        src + '/app/*.js'
+        src + '/app/app.js'
     ],
     out: dest + '/scripts',
     filename: src + '/app/app.js',

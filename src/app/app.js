@@ -1,7 +1,8 @@
 require('angular');
 require('angular-ui-bootstrap');
-var app = angular.module('app', ['ui.bootstrap']);
+require('angular-route');
 
-app.controller('MainController', function($scope) {
-    $scope.message = 'Whatever';
-});
+var MainController = require('./controllers/MainController')
+var app = angular.module('app', ['ui.bootstrap', 'ngRoute']);
+
+app.controller('MainController', ['$scope', MainController]);
