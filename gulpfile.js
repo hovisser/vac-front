@@ -50,7 +50,10 @@ var fonts = {
         in: [src + '/fonts/*.*', bootstrapSass.in + 'assets/fonts/**/*'],
         out: dest + '/fonts/'
     };
-
+var static = {
+  in: src + '/static/**/*',
+  out: dest
+}
 // Our scss source folder: .scss files
 var scss = {
     in: src + '/styles/main.scss',
@@ -107,15 +110,23 @@ gulp.task('index', function(){
       .pipe(gulp.dest(html.out));
 })
 
+gulp.task('static', function(){
+    gulp.src(static.in)
+        .pipe(gulp.dest(static.out));
+});
+
+
 // Watch Files For Changes
 gulp.task('watch', function() {
     gulp.watch(js.in, ['lint', 'browserify']);
     gulp.watch(html.in, ['index']);
+    gulp.watch(static.in, ['static']);
     gulp.watch(scss.watch, ['sass']);
 });
 
+
 // Default Task
-gulp.task('build', ['lint', 'sass', 'browserify', 'watch', 'index']);
+gulp.task('build', ['lint', 'sass', 'browserify', 'static', 'watch', 'index']);
 
 gulp.task('connect', function () {
     gulp.start('build');

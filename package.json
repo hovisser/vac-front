@@ -23,6 +23,7 @@
   "homepage": "https://github.com/hovisser/vac-front#readme",
   "dependencies": {
     "angular": "^1.5.5",
+    "angular-animate": "^1.5.6",
     "angular-route": "^1.5.5",
     "angular-ui-bootstrap": "^1.3.3",
     "bootstrap-sass": "^3.3.6",
