@@ -9,9 +9,13 @@ var sass = require('gulp-sass');
 var concat = require('gulp-concat');
 var uglify = require('gulp-uglify');
 var rename = require('gulp-rename');
+
+var templateCache = require('gulp-angular-templatecache');
 var connect = require('gulp-connect');
 var browserify = require('browserify');
 var source = require('vinyl-source-stream');
+const jasmine = require('gulp-jasmine');
+const reporters = require('jasmine-terminal-reporter');
 
 /**
 * config section
@@ -21,6 +25,7 @@ var src = './src';
 //destination folder
 var dest = './dist';
 
+
 //html files
 var html = {
   in: src + '/index.html',
@@ -28,12 +33,17 @@ var html = {
   out: dest
 }
 
+var test = {
+  in: src + '/app/**/*.spec.js'
+}
+
 //javascript files
 var js = {
     in: [
         src + '/app/**/*.module.js',
         src + '/app/**/*.js',
-        src + '/app/app.js'
+        src + '/app/app.js',
+        '!' + test.in
     ],
     out: dest + '/scripts',
     filename: src + '/app/app.js',
@@ -67,6 +77,15 @@ var scss = {
     }
 };
 
+
+var templates = {
+  in: src + '/app/templates/**/*.tpl.html',
+  out: dest + '/scripts/',
+  prefix: 'templates/',
+  filename: 'templates.js'
+}
+
+
 /**
 * Gulp tasks section
 */
@@ -83,6 +102,13 @@ gulp.task('fonts', function () {
         .pipe(gulp.dest(fonts.out));
 });
 
+
+gulp.task('test', function(){
+    gulp.src(test.in)
+      .pipe(jasmine({
+        reporter: new reporters()
+      }));
+});
 
 // Compile Our Sass
 gulp.task('sass', ['fonts'], function() {
@@ -116,9 +142,29 @@ gulp.task('static', function(){
 });
 
 
+gulp.task('templates', function () {
+  return gulp.src(templates.in)
+    .pipe(templateCache(templates.filename, {root: templates.prefix, transformUrl: function(url) {
+      return url.replace(/\.tpl\.html$/, '.html') }
+    }))
+    .pipe(gulp.dest(templates.out));
+});
+
+/*gulp.task('templates', function(){
+    return gulp.src('/app/templates/*.tpl.html')
+        //Let this plugin do it's magic and convert all templates to a js cache file
+        .pipe(angularTemplatecache())
+        //Move the final file to a destination folder
+        .pipe(rename('templateCache.js'))
+        .pipe(gulp.dest('./dist/scripts'));
+});*/
+
+
 // Watch Files For Changes
 gulp.task('watch', function() {
-    gulp.watch(js.in, ['lint', 'browserify']);
+    gulp.watch(templates.in, ['templates']);
+    gulp.watch(test.in, ['test']);
+    gulp.watch(js.in, [ 'test','lint', 'browserify']);
     gulp.watch(html.in, ['index']);
     gulp.watch(static.in, ['static']);
     gulp.watch(scss.watch, ['sass']);
@@ -126,7 +172,7 @@ gulp.task('watch', function() {
 
 
 // Default Task
-gulp.task('build', ['lint', 'sass', 'browserify', 'static', 'watch', 'index']);
+gulp.task('build', ['test', 'lint', 'sass', 'browserify', 'static', 'templates', 'watch', 'index']);
 
 gulp.task('connect', function () {
     gulp.start('build');
