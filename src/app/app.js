@@ -18,6 +18,7 @@ angular.module('templates', []);
 
 var app = angular.module('app', ['ui.bootstrap.tpls', 'ui.bootstrap.typeahead','ui.bootstrap.dropdown', 'ngRoute', 'ngAnimate', 'templates']);
 require('./components/CopyrightComponent');
+require('./components/PlaylistComponent');
 var MainController = require('./controllers/MainController');
 
 //'use strict';

@@ -1,0 +1,7 @@
+<div class="spotify-container">
+    <h4><img src="img/sp-icon.png" width="20" height="20" />Italie playlist</h4>
+    <div ng-repeat="album in playlist|limitTo : 5" class="row">
+      <div class="col-md-2"><img src="{{ album.images[0].url }}" width="40" height="40" /></div>
+      <div class="col-md-8"><a href="{{ album.external_urls.spotify }}" target="_blank">{{ album.name }}</a></div>
+    </div>
+</div>

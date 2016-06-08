@@ -30,6 +30,35 @@
 .content{
   margin-top: 25px;
 }
+.spotify-container{
+  float: right;
+  width: 300px;
+  padding-right: 15px;
+  padding-left: 15px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border-radius: 6px;
+  background-color: #e0e0e0;
+  border-width: 1px;
+  border-left-color: #808080;
+  border-top-color: #808080;
+  border-bottom-color: #ffffff;
+  border-right-color: #ffffff;
+   border-style: solid;
+  @media screen and (max-width: 768px) {
+    float: none;
+    display: none;
+  }
+  @media screen and (max-width: 480px) {
+    float: none;
+    display: none;
+  }
+  @media screen and (max-width: 375px) {
+    float: none;
+    display: none;
+  }
+
+}
 
 footer {
   bottom: 0px;

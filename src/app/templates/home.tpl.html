@@ -1,20 +1,29 @@
 <div class="jumbotron">
    <div class="container">
-     <div class="media">
-
-       <div class="media-body">
-         <h4 class="media-heading">Media heading</h4>
-         <p>
-           Een verslag van onze vakantie in toscane
-         </p>
-       </div>
-       <div class="media-right location-img">
-         <a href="#">
-           <img class="media-object" src="/img/location.jpg" alt="...">
-         </a>
-       </div>
+     <div class="row">
+       <div class="col-md-8">
+         <div class="media">
+           <div class="media-body">
+             <h4 class="media-heading">Media heading</h4>
+             <p>
+               Een verslag van onze vakantie in toscane
+             </p>
+           </div>
+           <div class="media-right location-img">
+             <!--<a href="#">
+               <img class="media-object" src="/img/location.jpg" alt="...">
+             </a>-->
+             <video src="//10.2.254.117:1935/vod/mp4:audio_aac.mp4/playlist.m3u8" controls>
+                Uw browser ondersteunt het element <code>video</code> niet.
+              </video>
+           </div>
+         </div>
+      </div>
+      <div classe="col-md-2">
+        <playlist-spotify />
+      </div>
     </div>
-   </div>
+  </div>
 </div>
 <div class="panel panel-default">
   <div class="panel-heading">
